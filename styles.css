@@ -39,3 +39,24 @@ img {
     height: auto;
     margin: 10px 0;
 }
+
+.back-to-home {
+    position: fixed;   /* Fixed position on the screen */
+    top: 10px;         /* 10 pixels from the top */
+    left: 10px;        /* 10 pixels from the left */
+    z-index: 1000;     /* Ensure it's on top of other content */
+}
+
+.back-to-home a {
+    color: #00FF00;  /* Matrix green color */
+    text-decoration: none;
+    border: 1px solid #00FF00;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.6); /* Slightly transparent black background */
+    transition: background 0.3s;
+}
+
+.back-to-home a:hover {
+    background: #00FF00;
+    color: black;
+}
