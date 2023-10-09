@@ -27,3 +27,15 @@ a:hover {
     background: #00FF00;
     color: black;
 }
+
+section {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #00FF00; /* Matrix green border */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
