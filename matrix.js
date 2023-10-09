@@ -17,7 +17,7 @@ for (let i = 0; i < columns; i++) {
 // Create the gradient effect
 function updateGradient() {
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-    gradient.addColorStop(0, 'rgba(0, 255, 0, 0.1)');
+    gradient.addColorStop(0, 'rgba(0, 255, 0, 0.3)');
     gradient.addColorStop(1, 'rgba(0, 255, 0, 1)');
     ctx.fillStyle = gradient;
 }
@@ -25,7 +25,7 @@ function updateGradient() {
 updateGradient();
 
 function drawMatrixRain() {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.03)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.01)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.font = fontSize + 'px Courier New';
 
