@@ -1,0 +1,29 @@
+body {
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    color: #00FF00; /* Matrix green color */
+    margin: 0;
+    padding: 20px;
+}
+
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+a {
+    color: #00FF00;
+    text-decoration: none;
+    border: 1px solid #00FF00;
+    padding: 5px;
+    margin: 10px;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+a:hover {
+    background: #00FF00;
+    color: black;
+}
