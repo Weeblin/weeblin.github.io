@@ -14,19 +14,21 @@ for (let i = 0; i < columns; i++) {
     drops[i] = Math.random() * canvas.height; // Randomize initial drop positions
 }
 
-// Create the gradient effect
-function updateGradient() {
+// Create the gradient effect for text
+function getTextGradient() {
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
     gradient.addColorStop(0, 'rgba(0, 255, 0, 0.3)');
     gradient.addColorStop(1, 'rgba(0, 255, 0, 1)');
-    ctx.fillStyle = gradient;
+    return gradient;
 }
 
-updateGradient();
-
 function drawMatrixRain() {
+    // Set background fill style
     ctx.fillStyle = 'rgba(0, 0, 0, 0.01)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Set text fill style
+    ctx.fillStyle = getTextGradient();
     ctx.font = fontSize + 'px Courier New';
 
     for (let i = 0; i < drops.length; i++) {
@@ -52,6 +54,4 @@ window.addEventListener('resize', function() {
     while (drops.length < columns) {
         drops.push(Math.random() * canvas.height); // Randomize new drop positions
     }
-
-    updateGradient();
 });
