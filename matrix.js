@@ -11,18 +11,22 @@ let columns = canvas.width / fontSize;
 
 const drops = [];
 for (let i = 0; i < columns; i++) {
-    drops[i] = 1;
+    drops[i] = Math.random() * canvas.height; // Randomize initial drop positions
 }
 
-// Gradient effect
-const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
-gradient.addColorStop(0, 'rgba(0, 255, 0, 0.3)');
-gradient.addColorStop(1, 'rgba(0, 255, 0, 1)');
+// Create the gradient effect
+function updateGradient() {
+    const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+    gradient.addColorStop(0, 'rgba(0, 255, 0, 0.3)');
+    gradient.addColorStop(1, 'rgba(0, 255, 0, 1)');
+    ctx.fillStyle = gradient;
+}
+
+updateGradient();
 
 function drawMatrixRain() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = gradient;
     ctx.font = fontSize + 'px Courier New';
 
     for (let i = 0; i < drops.length; i++) {
@@ -46,10 +50,8 @@ window.addEventListener('resize', function() {
 
     columns = canvas.width / fontSize;
     while (drops.length < columns) {
-        drops.push(0); // Add new rain drops for extra width
+        drops.push(Math.random() * canvas.height); // Randomize new drop positions
     }
 
-    // Update gradient for new width
-    gradient.addColorStop(0, 'rgba(0, 255, 0, 0.3)');
-    gradient.addColorStop(1, 'rgba(0, 255, 0, 1)');
+    updateGradient();
 });
