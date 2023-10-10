@@ -41,22 +41,35 @@ img {
 }
 
 .back-to-home {
-    position: fixed;   /* Fixed position on the screen */
-    top: 10px;         /* 10 pixels from the top */
-    left: 10px;        /* 10 pixels from the left */
-    z-index: 1000;     /* Ensure it's on top of other content */
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
-.back-to-home a {
-    color: #00FF00;  /* Matrix green color */
-    text-decoration: none;
-    border: 1px solid #00FF00;
-    padding: 5px 10px;
-    background: rgba(0, 0, 0, 0.6); /* Slightly transparent black background */
-    transition: background 0.3s;
+.pill-icon {
+    width: 40px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 10px;
+    transition: transform 0.3s;
 }
 
-.back-to-home a:hover {
-    background: #00FF00;
-    color: black;
+.back-text {
+    display: none;
+    margin-left: 10px;
+    color: #00FF00;
+    font-size: 16px;
+    transition: opacity 0.3s;
+}
+
+.back-to-home:hover .pill-icon {
+    transform: scaleX(0.5); /* Break animation */
+}
+
+.back-to-home:hover .back-text {
+    display: inline;
 }
