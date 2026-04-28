@@ -1,0 +1,61 @@
+{
+  "categories": [
+    {
+      "name": "career-advice",
+      "slug": "career-advice",
+      "posts": [
+        {
+          "title": "Crafting an Academic CV",
+          "slug": "cv-tips",
+          "date": "2026-04-05",
+          "summary": "Guidelines for creating an effective CV that highlights your academic achievements and professional skills.",
+          "tags": [
+            "career",
+            "cv",
+            "resume"
+          ],
+          "path": "blogs/career-advice/cv-tips"
+        },
+        {
+          "title": "Networking for Researchers",
+          "slug": "networking",
+          "date": "2026-02-20",
+          "summary": "Practical tips on how to build and maintain professional relationships within academia and industry.",
+          "tags": [
+            "career",
+            "networking"
+          ],
+          "path": "blogs/career-advice/networking"
+        }
+      ]
+    },
+    {
+      "name": "research-notes",
+      "slug": "research-notes",
+      "posts": [
+        {
+          "title": "Second Thoughts on My Thesis",
+          "slug": "second-thoughts",
+          "date": "2026-03-10",
+          "summary": "Reflecting on the challenges and successes encountered while writing my doctoral thesis.",
+          "tags": [
+            "research",
+            "reflection"
+          ],
+          "path": "blogs/research-notes/second-thoughts"
+        },
+        {
+          "title": "My First Paper",
+          "slug": "first-paper",
+          "date": "2026-01-15",
+          "summary": "An overview of my first academic publication, explaining the motivation, methods and key results.",
+          "tags": [
+            "research",
+            "introduction"
+          ],
+          "path": "blogs/research-notes/first-paper"
+        }
+      ]
+    }
+  ]
+}

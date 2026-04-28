@@ -1,75 +1,206 @@
-body {
-    background-color: black;
-    font-family: 'Courier New', Courier, monospace;
-    color: #00FF00; /* Matrix green color */
-    margin: 0;
-    padding: 20px;
+/*
+ * Minimalist academic style based on the Solarized colour palette.
+ * Colours adapted from the Solarized theme guide【721455089404405†L90-L110】.
+ */
+
+/* Light mode variables */
+:root {
+  --bg: #fdf6e3; /* base3 */
+  --bg2: #eee8d5; /* base2 */
+  --text-primary: #657b83; /* base00 */
+  --text-secondary: #586e75; /* base01 */
+  --accent: #268bd2; /* blue */
+  --heading: #d33682; /* magenta */
+  --link-hover: #6c71c4; /* violet */
+  --nav-bg: #eee8d5; /* base2 */
+  --nav-text: #657b83; /* base00 */
 }
 
-#matrixCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #002b36; /* base03 */
+    --bg2: #073642; /* base02 */
+    --text-primary: #839496; /* base0 */
+    --text-secondary: #93a1a1; /* base1 */
+    --accent: #2aa198; /* cyan */
+    --heading: #b58900; /* yellow */
+    --link-hover: #cb4b16; /* orange */
+    --nav-bg: #073642; /* base02 */
+    --nav-text: #839496; /* base0 */
+  }
+}
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: "Georgia", "Times New Roman", serif;
+  line-height: 1.6;
 }
 
 a {
-    color: #00FF00;
-    text-decoration: none;
-    border: 1px solid #00FF00;
-    padding: 5px;
-    margin: 10px;
-    display: inline-block;
-    transition: background 0.3s;
+  color: var(--accent);
+  text-decoration: none;
 }
 
 a:hover {
-    background: #00FF00;
-    color: black;
+  color: var(--link-hover);
+  text-decoration: underline;
 }
 
-section {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #00FF00; /* Matrix green border */
+h1, h2, h3, h4 {
+  color: var(--heading);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    margin: 10px 0;
+p, ul, ol {
+  margin-bottom: 1rem;
 }
 
-.back-to-home {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+pre, code {
+  font-family: "Courier New", monospace;
+  background: var(--bg2);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  overflow-x: auto;
 }
 
-.pill-icon {
-    width: 40px;
-    height: 20px;
-    background-color: blue;
-    border-radius: 10px;
-    transition: transform 0.3s;
+/* Layout container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-.back-text {
+/* Header and navigation */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--bg2);
+}
+
+.site-title a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--nav-text);
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  color: var(--nav-text);
+  font-weight: 500;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+/* Menu toggle button for mobile */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  cursor: pointer;
+}
+
+/* Post list */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.post-card {
+  background: var(--bg2);
+  padding: 1rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 4px;
+  transition: transform 0.1s ease;
+}
+
+.post-card:hover {
+  transform: translateX(4px);
+}
+
+.post-card h2 {
+  margin: 0 0 0.5rem;
+}
+
+.post-card .meta {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive styles */
+@media (max-width: 700px) {
+  .nav {
     display: none;
-    margin-left: 10px;
-    color: #00FF00;
-    font-size: 16px;
-    transition: opacity 0.3s;
+    flex-direction: column;
+    width: 100%;
+    background: var(--nav-bg);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 1rem;
+    border-bottom: 1px solid var(--bg2);
+  }
+  .nav.open {
+    display: flex;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .site-header {
+    flex-wrap: wrap;
+  }
 }
 
-.back-to-home:hover .pill-icon {
-    transform: scaleX(0.5); /* Break animation */
+/* Article content styling */
+.post-content {
+  margin-top: 2rem;
+}
+.post-content img {
+  max-width: 100%;
+  height: auto;
 }
 
-.back-to-home:hover .back-text {
-    display: inline;
+/* Footnotes and blockquotes */
+blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--accent);
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Code blocks for markdown */
+pre {
+  background: var(--bg2);
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+.math {
+  font-style: italic;
 }
