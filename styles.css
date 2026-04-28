@@ -81,8 +81,10 @@ pre, code {
   padding: 1rem;
 }
 
-/* Header and navigation */
+/* Header and navigation and search */
 .site-header {
+  position: relative;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -112,6 +114,89 @@ pre, code {
   color: var(--accent);
 }
 
+.site-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-toggle {
+  border: none;
+  background: transparent;
+  color: var(--nav-text);
+  font-size: 1.35rem;
+  cursor: pointer;
+  padding: 0.25rem 0.45rem;
+}
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+  border: 1px solid var(--bg2);
+  background: var(--bg);
+  color: var(--text-primary);
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  transition: width 0.2s ease, opacity 0.2s ease;
+}
+
+.site-search.open .search-input,
+.site-search:hover .search-input,
+.search-input:focus {
+  width: 220px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-results {
+  position: absolute;
+  top: 2.3rem;
+  right: 0;
+  width: min(420px, 90vw);
+  max-height: 60vh;
+  overflow-y: auto;
+  background: var(--bg);
+  border: 1px solid var(--bg2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 6px;
+  z-index: 50;
+}
+
+.search-result {
+  display: block;
+  padding: 0.8rem;
+  border-bottom: 1px solid var(--bg2);
+  color: var(--text-primary);
+}
+
+.search-result:hover {
+  background: var(--bg2);
+  text-decoration: none;
+}
+
+.search-result strong {
+  display: block;
+  color: var(--heading);
+}
+
+.search-result span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0.15rem 0;
+}
+
+.search-result p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.search-empty {
+  padding: 0.8rem;
+  color: var(--text-secondary);
+}
+
 /* Menu toggle button for mobile */
 .menu-toggle {
   display: none;
@@ -120,6 +205,16 @@ pre, code {
   border: none;
   color: var(--nav-text);
   cursor: pointer;
+}
+
+.site-search {
+  margin-left: auto;
+}
+
+.site-search.open .search-input,
+.site-search:hover .search-input,
+.search-input:focus {
+  width: 160px;
 }
 
 /* Post list */
