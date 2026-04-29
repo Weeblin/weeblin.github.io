@@ -58,7 +58,7 @@
     wrapper.className = "site-search";
 
     wrapper.innerHTML = `
-      <button class="search-toggle" aria-label="Open search">⌕</button>
+      <button class="search-toggle" aria-label="Open search" type="button">&#128269;</button>
       <input
         id="site-search-input"
         class="search-input"

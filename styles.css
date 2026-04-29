@@ -104,6 +104,11 @@ pre, code {
 
 #search-slot {
   display: flex;
+  order: 1;
+}
+
+#main-nav {
+  order: 2;
 }
 
 .site-title a {
