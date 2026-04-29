@@ -9,13 +9,19 @@
   <body>
     <header class="site-header">
       <div class="site-title"><a href="index.html">Wenlin Yi</a></div>
-      <nav id="main-nav" class="nav"></nav>
+
+      <div class="header-actions">
+        <div id="search-slot"></div>
+        <nav id="main-nav" class="nav"></nav>
+      </div>
+
       <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">
         ☰
       </button>
     </header>
     <main class="container">
       <article id="post-content" class="post-content"></article>
+      <section id="comments-root" class="comments-section"></section>
     </main>
     <!-- Marked for markdown rendering -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -23,5 +29,6 @@
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
     <script src="scripts/main.js"></script>
 <script src="scripts/search.js"></script>
+    <script src="scripts/comments.js"></script>
   </body>
 </html>

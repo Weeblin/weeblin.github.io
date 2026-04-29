@@ -51,7 +51,7 @@
   }
 
   function createSearchUI() {
-    const header = document.querySelector(".site-header");
+    const header = document.querySelector("#search-slot") || document.querySelector(".site-header");
     if (!header || document.querySelector(".site-search")) return null;
 
     const wrapper = document.createElement("div");
@@ -69,8 +69,7 @@
       <div id="site-search-results" class="search-results" hidden></div>
     `;
 
-    const menuToggle = document.getElementById("menu-toggle");
-    header.insertBefore(wrapper, menuToggle);
+    header.appendChild(wrapper);
 
     return wrapper;
   }
