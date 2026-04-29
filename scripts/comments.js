@@ -94,15 +94,16 @@
 
   function renderComment(comment) {
     const replies = (comment.replies || []).sort((a, b) => a.createdAt - b.createdAt);
+    const deleted = Boolean(comment.deleted);
 
     return `
       <article class="comment" data-comment-id="${escapeHTML(comment.id)}">
         <header>
-          <strong>${escapeHTML(comment.username)}</strong>
+          <strong>${deleted ? "Deleted user" : escapeHTML(comment.username)}</strong>
           <time>${new Date(comment.createdAt).toLocaleString()}</time>
         </header>
-        <p>${escapeHTML(comment.body)}</p>
-        <button type="button" class="text-button" data-action="show-reply" data-comment-id="${escapeHTML(comment.id)}">Reply</button>
+        <p class="${deleted ? "deleted-comment" : ""}">${deleted ? "This comment was deleted by its author." : escapeHTML(comment.body)}</p>
+        ${deleted ? "" : `<button type="button" class="text-button" data-action="show-reply" data-comment-id="${escapeHTML(comment.id)}">Reply</button>`}
         <div class="reply-slot"></div>
         ${replies.length ? `<div class="replies">${replies.map(renderReply).join("")}</div>` : ""}
       </article>
@@ -110,13 +111,15 @@
   }
 
   function renderReply(reply) {
+    const deleted = Boolean(reply.deleted);
+
     return `
       <article class="comment reply">
         <header>
-          <strong>${escapeHTML(reply.username)}</strong>
+          <strong>${deleted ? "Deleted user" : escapeHTML(reply.username)}</strong>
           <time>${new Date(reply.createdAt).toLocaleString()}</time>
         </header>
-        <p>${escapeHTML(reply.body)}</p>
+        <p class="${deleted ? "deleted-comment" : ""}">${deleted ? "This reply was deleted by its author." : escapeHTML(reply.body)}</p>
       </article>
     `;
   }
@@ -125,12 +128,12 @@
     const user = currentUser();
     const body = String(new FormData(form).get("body")).trim();
 
-    if (!body) return false;
-
     if (!user || !user.verified) {
       window.BlogUserSystem.openAuthModal("Please sign in to publish your comment.");
       return false;
     }
+
+    if (!body) return false;
 
     const postKey = getPostKey();
     const commentsByPost = getComments();
@@ -138,6 +141,7 @@
     const parentId = form.dataset.parentId;
     const entry = {
       id: makeId(),
+      userId: user.id,
       username: user.username,
       body,
       createdAt: Date.now(),
@@ -175,6 +179,15 @@
     root.addEventListener("click", event => {
       const button = event.target.closest("button");
       if (!button) return;
+
+      if (button.type === "submit" && button.closest('form[data-action="comment"]')) {
+        const user = currentUser();
+        if (!user || !user.verified) {
+          event.preventDefault();
+          window.BlogUserSystem.openAuthModal("Please sign in to publish your comment.");
+          return;
+        }
+      }
 
       if (button.dataset.action === "sign-out") {
         window.BlogUserSystem.signOut();

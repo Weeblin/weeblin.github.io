@@ -154,14 +154,14 @@
     return { ok: true, user: publicUser(user) };
   }
 
-  function renderModal(message) {
+  function renderModal(message, title = "Join the conversation") {
     const pending = loadJSON(PENDING_KEY, null);
 
     return `
       <div class="auth-modal-backdrop" data-auth-close></div>
       <section class="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
         <button type="button" class="auth-close" aria-label="Close" data-auth-close>&times;</button>
-        <h2 id="auth-title">Join the conversation</h2>
+        <h2 id="auth-title">${escapeHTML(title)}</h2>
         <p class="comments-note">Sign in or create an account to publish your comment.</p>
         ${message ? `<p class="auth-message">${escapeHTML(message)}</p>` : ""}
         <div class="auth-grid compact">
@@ -225,11 +225,11 @@
     `;
   }
 
-  function openAuthModal(message) {
+  function openAuthModal(message, title) {
     closeAuthModal();
     const wrapper = document.createElement("div");
     wrapper.className = "auth-modal-layer";
-    wrapper.innerHTML = renderModal(message);
+    wrapper.innerHTML = renderModal(message, title);
     document.body.appendChild(wrapper);
     document.body.classList.add("modal-open");
     wrapper.querySelector("input")?.focus();
@@ -256,7 +256,7 @@
         return;
       }
 
-      wrapper.innerHTML = renderModal(result.message || "Verification code sent.");
+      wrapper.innerHTML = renderModal(result.message || "Verification code sent.", title);
       wrapper.querySelector("input")?.focus();
     });
   }
