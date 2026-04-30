@@ -3,7 +3,7 @@
     repo: "Weeblin/weeblin.github.io",
     repoId: "R_kgDOKccf_w",
     category: "General",
-    categoryId: "PASTE_DISCUSSION_CATEGORY_ID_HERE",
+    categoryId: "DIC_kwDOKccf_84C7_4_",
     lang: "en"
   };
 
