@@ -23,6 +23,38 @@ function getQueryParam(name) {
   return params.get(name);
 }
 
+function encodePath(path) {
+  return path.split('/').map(part => encodeURIComponent(part)).join('/');
+}
+
+function escapeAttribute(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function isImageFile(file) {
+  return /\.(png|jpe?g|gif|webp|svg|avif)$/i.test(file);
+}
+
+function preprocessPostMarkdown(markdown, postPath) {
+  const attachmentsPath = `${postPath}/attachments`;
+
+  return markdown.replace(/!\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, rawFile, rawLabel) => {
+    const file = rawFile.trim();
+    const label = (rawLabel || file).trim();
+    const url = encodePath(`${attachmentsPath}/${file}`);
+
+    if (isImageFile(file)) {
+      return `<img src="${url}" alt="${escapeAttribute(label)}" loading="lazy" />`;
+    }
+
+    return `[${label}](${url})`;
+  });
+}
+
 // Toggle navigation on mobile
 function setupMenuToggle() {
   const toggle = document.getElementById('menu-toggle');
@@ -173,7 +205,7 @@ async function renderPostPage(categorySlug, postSlug) {
   // Render content
   const contentDiv = document.createElement('div');
   if (contentFile === 'md') {
-    contentDiv.innerHTML = marked.parse(contentText, { breaks: true });
+    contentDiv.innerHTML = marked.parse(preprocessPostMarkdown(contentText, path), { breaks: true });
   } else {
     // For LaTeX we escape HTML and wrap in pre/code
     const pre = document.createElement('pre');

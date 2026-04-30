@@ -1,0 +1,193 @@
+{
+  "main": {
+    "id": "a694af70b0d997e8",
+    "type": "split",
+    "children": [
+      {
+        "id": "034fa2a843840bbf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9fc47ca32e5a852f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "career-advice/cv-tips/content.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "content"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "979ae28fb071a84c",
+    "type": "split",
+    "children": [
+      {
+        "id": "accd1719a4e1becb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a5dab3bca8939c8b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "3394b571104d9061",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "98ebe629068a2b16",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "819acddadbe0ceae",
+    "type": "split",
+    "children": [
+      {
+        "id": "74eaa8162025da4d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "24884a0f40586d23",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "career-advice/cv-tips/content.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "content 的反向链接列表"
+            }
+          },
+          {
+            "id": "00ce5c288ea1807b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "career-advice/cv-tips/content.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "content 的出链列表"
+            }
+          },
+          {
+            "id": "44d7fd6d0826e292",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "cdc2569220503277",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "12a2f29dc0823796",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "career-advice/cv-tips/content.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "content 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "9fc47ca32e5a852f",
+  "lastOpenFiles": [
+    "career-advice/cv-tips/attachments/Pasted image 20260430020338.png",
+    "career-advice/cv-tips/attachments",
+    "career-advice/networking/content.md",
+    "research-notes/first-paper/content.md"
+  ]
+}
