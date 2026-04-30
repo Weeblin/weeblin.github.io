@@ -47,12 +47,6 @@ async function buildNavigation(categories) {
     link.textContent = cat.name;
     nav.appendChild(link);
   });
-  // Add Account link before About
-  const account = document.createElement('a');
-  account.href = 'account.html';
-  account.textContent = 'Account';
-  nav.appendChild(account);
-
   // Add About link
   const about = document.createElement('a');
   about.href = 'about.html';

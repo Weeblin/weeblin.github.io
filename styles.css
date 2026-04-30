@@ -322,309 +322,34 @@ pre, code {
   height: auto;
 }
 
-/* Comments and account forms */
+/* Giscus comments */
 .comments-section {
   margin-top: 2rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--bg2);
 }
 
-.comment,
-.comment-form {
-  background: var(--bg2);
-  border-radius: 6px;
-  padding: 1rem;
-}
-
-.auth-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.auth-grid.compact {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.auth-form,
-.verify-form,
-.comment-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.comment-form {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-}
-
-.auth-form h3,
-.verify-form h3 {
-  margin-top: 0;
-}
-
-.auth-form label,
-.verify-form label,
-.comment-form label {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.auth-form input,
-.verify-form input,
-.comment-form textarea {
-  width: 100%;
-  border: 1px solid var(--text-secondary);
-  border-radius: 4px;
-  background: var(--bg);
-  color: var(--text-primary);
-  font: inherit;
-  padding: 0.45rem 0.55rem;
-}
-
-.auth-form button,
-.verify-form button,
-.comment-form button {
-  align-self: flex-start;
-  border: 1px solid var(--accent);
-  border-radius: 4px;
-  background: var(--accent);
-  color: var(--bg);
-  cursor: pointer;
-  font: inherit;
-  padding: 0.4rem 0.7rem;
-}
-
-.auth-status {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.auth-status.inline {
-  font-size: 0.95rem;
-}
-
-.text-button {
-  border: none;
-  background: transparent;
-  color: var(--accent);
-  cursor: pointer;
-  font: inherit;
-  padding: 0;
-}
-
-.comments-note {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin: 0.75rem 0;
-}
-
-.primary-action {
-  border: 1px solid var(--accent);
-  border-radius: 4px;
-  background: var(--accent);
-  color: var(--bg);
-  cursor: pointer;
-  font: inherit;
-  padding: 0.45rem 0.75rem;
-}
-
-.email-preview {
-  border-left: 3px solid var(--accent);
-  padding-left: 0.75rem;
-}
-
-.comments-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.comment header {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  justify-content: space-between;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-.comment p {
-  margin: 0.5rem 0;
-}
-
-.deleted-comment {
-  color: var(--text-secondary);
-  font-style: italic;
-}
-
-.replies {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 0.75rem;
-  padding-left: 1rem;
-  border-left: 3px solid var(--accent);
-}
-
-.comment.reply {
-  background: var(--bg);
-}
-
-.comments-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.comments-header h2 {
+.comments-section h2 {
   margin-bottom: 0.75rem;
 }
 
-.comments-toggle {
-  display: block;
-  margin: 1rem auto 0;
-  border: 1px solid var(--accent);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--accent);
-  cursor: pointer;
-  font: inherit;
-  padding: 0.35rem 0.85rem;
+.giscus {
+  margin-top: 1rem;
 }
 
-body.modal-open {
-  overflow: hidden;
+.giscus-frame {
+  color-scheme: light dark;
 }
 
-.auth-modal-layer {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-}
-
-.auth-modal-backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-}
-
-.auth-modal {
-  position: relative;
-  z-index: 1;
-  width: min(680px, 100%);
-  max-height: min(760px, 92vh);
-  overflow-y: auto;
-  background: var(--bg);
-  border: 1px solid var(--bg2);
-  border-radius: 8px;
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
-  padding: 1.25rem;
-}
-
-.auth-modal h2 {
-  margin-top: 0;
-}
-
-.auth-close {
-  position: absolute;
-  top: 0.75rem;
-  right: 0.75rem;
-  border: none;
-  background: transparent;
-  color: var(--text-secondary);
-  cursor: pointer;
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-.auth-message {
+.giscus-setup-note {
   background: var(--bg2);
   border-left: 3px solid var(--accent);
-  padding: 0.65rem 0.75rem;
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
 }
 
-.account-page {
-  margin-top: 1.5rem;
-}
-
-.account-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.account-panel {
-  margin-top: 1.5rem;
-}
-
-.account-item {
-  background: var(--bg2);
-  border-radius: 6px;
-  padding: 1rem;
-  margin-top: 0.75rem;
-}
-
-.account-item header,
-.account-item-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.account-item header {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-.account-item p {
-  margin: 0.5rem 0;
-}
-
-.text-button.danger {
-  color: #dc322f;
-}
-
-.google-form,
-.verify-form {
-  margin-top: 1rem;
-  background: var(--bg2);
-  border-radius: 6px;
-  padding: 1rem;
-}
-
-@media (max-width: 700px) {
-  .auth-grid,
-  .auth-grid.compact {
-    grid-template-columns: 1fr;
-  }
-
-  .auth-status {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .comments-header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .comment-form {
-    grid-template-columns: 1fr;
-  }
+.giscus-setup-note p:last-child {
+  margin-bottom: 0;
 }
 
 /* Footnotes and blockquotes */
