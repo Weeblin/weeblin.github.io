@@ -1,7 +1,7 @@
 # Crafting an Academic CV
 
 Your curriculum vitae (CV) is often the first impression you make on hiring committees.  A well organised and readable document can dramatically improve your chances of securing an interview.
-![[Pasted image 20260430020338.png]]
+![[Pasted image 20260430020338.png|300]]
 
 ## Keep It Clean
 
