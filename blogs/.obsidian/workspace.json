@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "career-advice/cv-tips/content.md",
+                "file": "research-notes/second-thoughts/content.md",
                 "mode": "source",
                 "source": false
               },
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "career-advice/cv-tips/content.md",
+                "file": "research-notes/second-thoughts/content.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +113,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "career-advice/cv-tips/content.md",
+                "file": "research-notes/second-thoughts/content.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -156,7 +156,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "career-advice/cv-tips/content.md",
+                "file": "research-notes/second-thoughts/content.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -185,9 +185,10 @@
   },
   "active": "9fc47ca32e5a852f",
   "lastOpenFiles": [
+    "career-advice/networking/content.md",
+    "career-advice/cv-tips/content.md",
     "career-advice/cv-tips/attachments/Pasted image 20260430020338.png",
     "career-advice/cv-tips/attachments",
-    "career-advice/networking/content.md",
     "research-notes/first-paper/content.md"
   ]
 }

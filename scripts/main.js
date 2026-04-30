@@ -39,19 +39,41 @@ function isImageFile(file) {
   return /\.(png|jpe?g|gif|webp|svg|avif)$/i.test(file);
 }
 
+function parseObsidianImageOptions(label, fallbackAlt) {
+  const cleanLabel = label.trim();
+  const sizeMatch = cleanLabel.match(/^(\d+)(?:x(\d+))?$/i);
+
+  if (!sizeMatch) {
+    return {
+      alt: cleanLabel || fallbackAlt,
+      attributes: ""
+    };
+  }
+
+  const width = Math.max(1, Number(sizeMatch[1]));
+  const height = sizeMatch[2] ? Math.max(1, Number(sizeMatch[2])) : null;
+  const style = `width: min(${width}px, 100%); height: ${height ? `${height}px` : "auto"};`;
+
+  return {
+    alt: fallbackAlt,
+    attributes: ` style="${style}"`
+  };
+}
+
 function preprocessPostMarkdown(markdown, postPath) {
   const attachmentsPath = `${postPath}/attachments`;
 
   return markdown.replace(/!\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, rawFile, rawLabel) => {
     const file = rawFile.trim();
-    const label = (rawLabel || file).trim();
+    const label = (rawLabel || "").trim();
     const url = encodePath(`${attachmentsPath}/${file}`);
 
     if (isImageFile(file)) {
-      return `<img src="${url}" alt="${escapeAttribute(label)}" loading="lazy" />`;
+      const options = parseObsidianImageOptions(label, file);
+      return `<img src="${url}" alt="${escapeAttribute(options.alt)}" loading="lazy"${options.attributes} />`;
     }
 
-    return `[${label}](${url})`;
+    return `[${label || file}](${url})`;
   });
 }
 
