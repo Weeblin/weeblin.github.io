@@ -129,7 +129,7 @@
     const body = String(new FormData(form).get("body")).trim();
 
     if (!user || !user.verified) {
-      window.BlogUserSystem.openAuthModal("Please sign in to publish your comment.");
+      window.BlogUserSystem.openAuthModal();
       return false;
     }
 
@@ -184,7 +184,7 @@
         const user = currentUser();
         if (!user || !user.verified) {
           event.preventDefault();
-          window.BlogUserSystem.openAuthModal("Please sign in to publish your comment.");
+          window.BlogUserSystem.openAuthModal();
           return;
         }
       }
@@ -200,7 +200,7 @@
 
       if (button.dataset.action === "show-reply") {
         if (!currentUser()) {
-          window.BlogUserSystem.openAuthModal("Please sign in to reply.");
+          window.BlogUserSystem.openAuthModal();
           return;
         }
 

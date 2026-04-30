@@ -219,7 +219,11 @@
       if (!button) return;
 
       if (button.dataset.action === "open-auth") {
-        window.BlogUserSystem.openAuthModal("Please sign in to view your account.", "Stay connnected");
+        window.BlogUserSystem.openAuthModal({
+          title: "Stay connected",
+          note: "Sign in or create an account to publish and view your comments.",
+          reassurance: "I will not spam you"
+        });
       }
 
       if (button.dataset.action === "sign-out") {
