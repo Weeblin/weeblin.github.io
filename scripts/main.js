@@ -8,6 +8,12 @@
  *  - Handle mobile menu toggling
  */
 
+// Toggle this for local preview versus published-site attachment URLs.
+// `true`  -> use your local server base URL below
+// `false` -> use site-relative paths for GitHub Pages / deployed preview
+const LOCAL_PATH = true;
+const LOCAL_PATH_ROOT = "http://127.0.0.1:8000";
+
 // Utility to fetch JSON files relative to the site root
 async function fetchJSON(path) {
   const response = await fetch(path);
@@ -25,6 +31,20 @@ function getQueryParam(name) {
 
 function encodePath(path) {
   return path.split('/').map(part => encodeURIComponent(part)).join('/');
+}
+
+function trimTrailingSlash(value) {
+  return value.replace(/\/+$/, "");
+}
+
+function buildAttachmentURL(path) {
+  const encodedPath = encodePath(path);
+
+  if (LOCAL_PATH) {
+    return `${trimTrailingSlash(LOCAL_PATH_ROOT)}/${encodedPath}`;
+  }
+
+  return encodedPath;
 }
 
 function escapeAttribute(value) {
@@ -66,7 +86,7 @@ function preprocessPostMarkdown(markdown, postPath) {
   return markdown.replace(/!\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, rawFile, rawLabel) => {
     const file = rawFile.trim();
     const label = (rawLabel || "").trim();
-    const url = encodePath(`${attachmentsPath}/${file}`);
+    const url = buildAttachmentURL(`${attachmentsPath}/${file}`);
 
     if (isImageFile(file)) {
       const options = parseObsidianImageOptions(label, file);
