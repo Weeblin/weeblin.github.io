@@ -10,7 +10,7 @@ if (-not (Test-Path $git)) {
 
 & $git submodule update --init --recursive
 
-$targetPath = Join-Path $repoRoot ".codex\AGENTS.md"
+$targetPath = Join-Path $repoRoot ".codex\root\AGENTS.md"
 $linkPath = Join-Path $repoRoot "AGENTS.md"
 
 if (-not (Test-Path $targetPath)) {
@@ -19,21 +19,23 @@ if (-not (Test-Path $targetPath)) {
 
 if (Test-Path $linkPath) {
     $existing = Get-Item $linkPath -Force
-    if ($existing.Attributes -band [IO.FileAttributes]::ReparsePoint) {
-        Remove-Item $linkPath -Force
-    } else {
-        throw "AGENTS.md already exists and is not a link. Move or delete it, then rerun this script."
+    if (($existing.Attributes -band [IO.FileAttributes]::ReparsePoint) -and ($existing.Target -contains $targetPath -or $existing.Target -contains ".codex\root\AGENTS.md")) {
+        Write-Host "AGENTS.md already points to .codex\\root\\AGENTS.md."
+        exit 0
     }
+    Remove-Item $linkPath -Force
 }
 
 try {
-    New-Item -ItemType SymbolicLink -Path $linkPath -Target ".codex\AGENTS.md" -Force | Out-Null
+    New-Item -ItemType SymbolicLink -Path $linkPath -Target ".codex\root\AGENTS.md" -Force | Out-Null
+    & $git update-index --no-skip-worktree AGENTS.md 2>$null
     Write-Host "Created AGENTS.md symbolic link."
 } catch {
     try {
         New-Item -ItemType HardLink -Path $linkPath -Target $targetPath -Force | Out-Null
-        Write-Host "Created AGENTS.md hard link."
+        & $git update-index --skip-worktree AGENTS.md
+        Write-Host "Created AGENTS.md hard link and marked it skip-worktree locally."
     } catch {
-        throw "Failed to create AGENTS.md link. Enable symlink support or create a file link manually to .codex/AGENTS.md."
+        throw "Failed to create AGENTS.md link. Enable symlink support or create a file link manually to .codex/root/AGENTS.md."
     }
 }

@@ -41,7 +41,9 @@ Feel free to extend the site with search, tag filters, RSS feeds or other featur
 
 ## Private Codex Setup
 
-This repo tracks the private `.codex` environment as a Git submodule. After cloning the public repo, run one of the setup scripts to pull the private repo and create a local root `AGENTS.md` link that points to `.codex/AGENTS.md`.
+This repo tracks the private `.codex` environment as a Git submodule. After cloning the public repo, run one of the setup scripts to pull the private repo and wire the root `AGENTS.md` entry to `.codex/root/AGENTS.md`.
+
+On platforms with symlink support, the root `AGENTS.md` stays a symlink in the working tree. On Windows machines without symlink permissions, the setup script falls back to a hard link and marks the file `skip-worktree` locally so Git still keeps the tracked symlink metadata clean.
 
 On Windows PowerShell:
 

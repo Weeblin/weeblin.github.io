@@ -6,7 +6,7 @@ cd "$repo_root"
 
 git submodule update --init --recursive
 
-target_path=".codex/AGENTS.md"
+target_path=".codex/root/AGENTS.md"
 link_path="AGENTS.md"
 
 if [[ ! -f "$target_path" ]]; then
@@ -27,9 +27,11 @@ elif [[ -e "$link_path" ]]; then
 fi
 
 if ln -s "$target_path" "$link_path" 2>/dev/null; then
+  git update-index --no-skip-worktree AGENTS.md >/dev/null 2>&1 || true
   echo "Created AGENTS.md symbolic link."
 elif ln "$target_path" "$link_path" 2>/dev/null; then
-  echo "Created AGENTS.md hard link."
+  git update-index --skip-worktree AGENTS.md >/dev/null 2>&1 || true
+  echo "Created AGENTS.md hard link and marked it skip-worktree locally."
 else
   echo "Failed to create AGENTS.md link. Create a symlink or hard link to $target_path manually." >&2
   exit 1
