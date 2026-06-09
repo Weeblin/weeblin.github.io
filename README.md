@@ -51,6 +51,14 @@ On Windows PowerShell:
 .\scripts\setup-codex.ps1
 ```
 
+To also clone the ignored Microsoft MarkItDown source and install its MCP server into `.venv`:
+
+```powershell
+.\scripts\setup-codex.ps1 -InstallMarkItDown
+```
+
+Add `-FullMarkItDown` to request all optional converters; some platforms may require native build tools.
+
 To re-check or repair the root link later:
 
 ```powershell
