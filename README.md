@@ -38,3 +38,19 @@ This project implements a simple, file‑based blog system targeted at young pro
 5. **About/CV:** The `about.html` page is a placeholder where you can embed your résumé or introduce yourself.  It is linked from the navigation bar.
 
 Feel free to extend the site with search, tag filters, RSS feeds or other features as needed.
+
+## Private Codex Setup
+
+This repo tracks the private `.codex` environment as a Git submodule. After cloning the public repo, run one of the setup scripts to pull the private repo and create a local root `AGENTS.md` link that points to `.codex/AGENTS.md`.
+
+On Windows PowerShell:
+
+```powershell
+.\scripts\setup-codex.ps1
+```
+
+On macOS/Linux:
+
+```sh
+./scripts/setup-codex.sh
+```
