@@ -51,6 +51,18 @@ On Windows PowerShell:
 .\scripts\setup-codex.ps1
 ```
 
+To re-check or repair the root link later:
+
+```powershell
+.\scripts\ensure-agents-link.ps1
+```
+
+If `.venv` is recreated, reinstall its activation hook:
+
+```powershell
+.\scripts\install-venv-agents-hook.ps1
+```
+
 On macOS/Linux:
 
 ```sh
