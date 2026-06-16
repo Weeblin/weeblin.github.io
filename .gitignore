@@ -1,2 +1,3 @@
 markitdown/
 .venv/
+.venv-arm64-backup/

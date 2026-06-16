@@ -1,0 +1,10 @@
+[mcp_servers.markitdown]
+command = ".venv/Scripts/markitdown-mcp.exe"
+enabled = true
+required = false
+startup_timeout_sec = 30
+tool_timeout_sec = 120
+
+[mcp_servers.markitdown.env]
+PYTHONUTF8 = "1"
+PYTHONIOENCODING = "utf-8"

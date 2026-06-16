@@ -1,0 +1,11 @@
+{
+  "agents_link_mode": "copy-fallback",
+  "backup_locations": {
+    "codex": "D:\\weeblin.github.io\\.codex.pre-agentscompany-20260611-172949-codex"
+  },
+  "install_mode": "submodule",
+  "installed_at": "2026-06-11T16:29:51+00:00",
+  "schema_version": 1,
+  "source_repository": "git@github.com:Weeblin/AgentsCompany.git",
+  "status": "installed"
+}

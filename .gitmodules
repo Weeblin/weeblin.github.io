@@ -1,3 +1,3 @@
-[submodule ".codex"]
+[submodule "AgentsCompany"]
 	path = .codex
-	url = git@github.com:Weeblin/WeeblinAgentEnv.git
+	url = git@github.com:Weeblin/AgentsCompany.git
