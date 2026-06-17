@@ -1,3 +1,4 @@
 markitdown/
 .venv/
 .venv-arm64-backup/
+.codex.pre-agentscompany-*/

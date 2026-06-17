@@ -6,7 +6,7 @@ cd "$repo_root"
 
 git submodule update --init --recursive
 
-target_path=".codex/root/AGENTS.md"
+target_path=".codex/AGENTS.md"
 link_path="AGENTS.md"
 
 if [[ ! -f "$target_path" ]]; then

@@ -1,1 +1,1 @@
-.codex/root/AGENTS.md
+.codex/AGENTS.md
