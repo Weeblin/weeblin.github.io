@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About – Minimalist Academic Blog</title>
+    <title>About - Minimalist Academic Blog</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -16,26 +16,30 @@
       </div>
 
       <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation">
-        ☰
+        &#9776;
       </button>
     </header>
 
     <main class="container">
       <h1>About Me</h1>
-      <p>
-        This is a placeholder page where you can introduce yourself and share
-        your résumé or CV.  Write a few paragraphs about your academic
-        interests, research experience and professional goals.  You can also
-        embed a PDF of your CV or link to your LinkedIn profile.
-      </p>
-      <p>
-        To customise this page, edit <code>about.html</code> in the project
-        directory.
-      </p>
+      <section class="pdf-widget" aria-labelledby="cv-heading">
+        <h2 id="cv-heading">Curriculum Vitae</h2>
+        <object
+          class="pdf-viewer"
+          data="WENLIN_YI_CV_SW.pdf"
+          type="application/pdf"
+          aria-label="Wenlin Yi CV"
+        >
+          <p>
+            Your browser cannot display this PDF inline.
+            <a href="WENLIN_YI_CV_SW.pdf">Open the CV PDF</a>.
+          </p>
+        </object>
+      </section>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="scripts/main.js"></script>
-<script src="scripts/search.js"></script>
+    <script src="scripts/search.js"></script>
   </body>
 </html>

@@ -81,6 +81,19 @@ pre, code {
   padding: 1rem;
 }
 
+.pdf-widget {
+  margin-top: 1rem;
+}
+
+.pdf-viewer {
+  display: block;
+  width: 100%;
+  min-height: 80vh;
+  border: 1px solid var(--bg2);
+  border-radius: 4px;
+  background: var(--bg2);
+}
+
 /* Header and navigation and search */
 .site-header {
   position: relative;
